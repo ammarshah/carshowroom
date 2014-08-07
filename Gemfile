@@ -17,6 +17,7 @@ gem 'mysql2'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
+gem 'rolify'
 group :development do
   gem 'html2haml'
   gem 'quiet_assets'
