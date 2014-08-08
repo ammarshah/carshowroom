@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if current_user.has_role? :admin
       users_path
     else
-      root_path
+      
     end
 
 	end
