@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'rolify'
+gem 'high_voltage', '~> 2.2.1'
+gem 'mail_form'
 group :development do
   gem 'html2haml'
   gem 'quiet_assets'

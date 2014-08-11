@@ -8,6 +8,10 @@
         %span.icon-bar
         %span.icon-bar
       = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'About', page_path('about'), class: 'navbar-brand'
+      = link_to 'Contact', new_contact_path, class: 'navbar-brand'
+      = link_to 'Used Cars', root_path, class: 'navbar-brand'
+      = link_to 'New Cars', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'
