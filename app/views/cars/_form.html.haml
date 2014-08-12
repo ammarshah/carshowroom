@@ -1,0 +1,18 @@
+= simple_form_for(@car) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :car_make
+    = f.input :car_model
+    = f.input :car_version
+    = f.input :car_year
+    = f.input :car_city
+    = f.input :car_mileage
+    = f.input :car_price
+    = f.input :car_trans
+    = f.input :car_desc
+    = f.input :car_type
+    = f.file_field :image
+
+  .form-actions
+    = f.button :submit
