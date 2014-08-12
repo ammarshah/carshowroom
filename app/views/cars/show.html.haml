@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Car make:
+  = @car.car_make
+%p
+  %b Car model:
+  = @car.car_model
+%p
+  %b Car version:
+  = @car.car_version
+%p
+  %b Car year:
+  = @car.car_year
+%p
+  %b Car city:
+  = @car.car_city
+%p
+  %b Car mileage:
+  = @car.car_mileage
+%p
+  %b Car price:
+  = @car.car_price
+%p
+  %b Car trans:
+  = @car.car_trans
+%p
+  %b Car desc:
+  = @car.car_desc
+%p
+  %b Car type:
+  = @car.car_type
+%p
+  %b Car approval:
+  = @car.car_approval
+
+= link_to 'Edit', edit_car_path(@car)
+\|
+= link_to 'Back', cars_path
