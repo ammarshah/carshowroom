@@ -6,13 +6,7 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(resource)
       
       if current_user.has_role? :admin
-      sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
-    	
-    	if request.referer == sign_in_url
-      		super
-    	else
-      		stored_location_for(resource)
-    	end
+      admin_cars_path
 
       else
       sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
