@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807124850) do
+ActiveRecord::Schema.define(version: 20140812130231) do
+
+  create_table "cars", force: true do |t|
+    t.string   "car_make"
+    t.string   "car_model"
+    t.string   "car_version"
+    t.integer  "car_year"
+    t.string   "car_city"
+    t.integer  "car_mileage"
+    t.integer  "car_price"
+    t.string   "car_trans"
+    t.string   "car_desc"
+    t.string   "car_type"
+    t.boolean  "car_approval"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"

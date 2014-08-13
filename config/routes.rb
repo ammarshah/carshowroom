@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources "contacts", only: [:new, :create]
+  resources :cars
+  namespace :admin do
+  	resources :cars
+  end
 end
