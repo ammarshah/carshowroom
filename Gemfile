@@ -14,6 +14,8 @@ gem 'devise'
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'mysql2'
+gem 'carrierwave'
+gem 'rmagick'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'

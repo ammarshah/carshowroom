@@ -1,7 +1,8 @@
-	class CarsController < ApplicationController
+class CarsController < ApplicationController
+  
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
-  # GET /cars
+	# GET /cars
   # GET /cars.json
   def index
     @cars = Car.all
@@ -28,6 +29,7 @@
 
     respond_to do |format|
       if @car.save
+        Photo.create(:name => @car.image.filename, :car_id => @car.id)
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
@@ -69,6 +71,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:car_make, :car_model, :car_version, :car_year, :car_city, :car_mileage, :car_price, :car_trans, :car_desc, :car_type, :car_approval, :user_id)
+      params.require(:car).permit(:car_make, :car_model, :car_version, :car_year, :car_city, :car_mileage, :car_price, :car_trans, :car_desc, :car_type, :car_approval, :user_id, :car_id, :name, :image, :remote_image_url)
     end
 end
