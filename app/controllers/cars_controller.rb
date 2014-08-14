@@ -5,7 +5,19 @@ class CarsController < ApplicationController
 	# GET /cars
   # GET /cars.json
   def index
+    @cars = Car.search(params[:search])
+  end
+
+  def all
     @cars = Car.all
+  end
+
+  def used_cars
+    
+  end
+
+  def new_cars
+    
   end
 
   # GET /cars/1

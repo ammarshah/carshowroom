@@ -1,0 +1,40 @@
+%p
+  %b You can also view particular category of cars.
+%br
+  = link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
+  = link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
+%br
+%br
+
+%h1 Listing All Cars
+
+%table
+  %tr
+    %th Car make
+    %th Car model
+    %th Car version
+    %th Car year
+    %th Car city
+    %th Car mileage
+    %th Car price
+    %th Car trans
+    %th Car desc
+    %th Car type
+    %th
+    %th
+    %th
+
+  - @cars.each do |car|
+    %tr
+      %td= car.car_make
+      %td= car.car_model
+      %td= car.car_version
+      %td= car.car_year
+      %td= car.car_city
+      %td= car.car_mileage
+      %td= car.car_price
+      %td= car.car_trans
+      %td= car.car_desc
+      %td= car.car_type
+
+%br

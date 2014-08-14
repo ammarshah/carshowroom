@@ -1,7 +1,9 @@
 -# navigation styled for Bootstrap 3.0
-%nav.navbar.navbar-default.navbar-fixed-top
+%nav.navbar.navbar-default.navbar
   .container
     .navbar-header
+      %div.brand
+        = image_tag "logo.png"
       %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
@@ -9,9 +11,8 @@
         %span.icon-bar
       = link_to 'Home', root_path, class: 'navbar-brand'
       = link_to 'About', page_path('about'), class: 'navbar-brand'
-      = link_to 'Contact', new_contact_path, class: 'navbar-brand'
-      = link_to 'Used Cars', root_path, class: 'navbar-brand'
-      = link_to "New Cars", root_path, class: 'navbar-brand'
+      = link_to 'Contact', new_contact_path, class: 'navbar-brand' 
+      = link_to 'Cars', cars_all_path, class: 'navbar-brand'
       = link_to "Add Cars", new_car_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
