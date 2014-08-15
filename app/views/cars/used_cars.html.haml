@@ -1,3 +1,4 @@
+%br
 = link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
 = link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
 %br
@@ -41,4 +42,4 @@
   = car.car_type
   <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 
-= link_to 'Back', cars_all_path, :class=> "btn btn-primary"
+= paginate @cars

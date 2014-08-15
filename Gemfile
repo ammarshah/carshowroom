@@ -22,6 +22,7 @@ gem 'thin'
 gem 'rolify'
 gem 'high_voltage', '~> 2.2.1'
 gem 'mail_form'
+gem 'kaminari'
 group :development do
   gem 'html2haml'
   gem 'quiet_assets'
