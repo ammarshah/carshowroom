@@ -9,15 +9,15 @@ class CarsController < ApplicationController
   end
 
   def all
-    @cars = Car.order("created_at DESC")
+    @cars = Car.order("created_at DESC").page(params[:page]).per(3)
   end
 
   def used_cars
-    @cars = Car.used_cars
+    @cars = Car.used_cars.order("created_at DESC").page(params[:page]).per(3)
   end
 
   def new_cars
-    @cars = Car.new_cars
+    @cars = Car.new_cars.order("created_at DESC").page(params[:page]).per(3)
   end
 
   # GET /cars/1

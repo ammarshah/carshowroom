@@ -1,12 +1,12 @@
+%br
 = link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
 = link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
 %br
 %br
-
 %h1 Latest Cars
+<hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 
 - @cars.each do |car|
-  <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
   %p
   = image_tag car.image_url(:thumb) if car.image?
   
@@ -40,3 +40,5 @@
   %b Type:
   = car.car_type
   <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
+
+= paginate @cars
