@@ -1,5 +1,7 @@
 %p#notice= notice
-
+%p
+  %b Car image:
+  = image_tag @car.image_url(:thumb) if @car.image?
 %p
   %b Car make:
   = @car.car_make
