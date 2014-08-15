@@ -1,5 +1,44 @@
-%p
-  %b Listing Used Cars.
+= link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
+= link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
 %br
+%br
+
+%h1 Used Cars
+
+- @cars.each do |car|
+  <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
+  %p
+  = image_tag car.image_url(:thumb) if car.image?
+  
+  %b Make:
+  = car.car_make
+  %br
+  %b Model:
+  = car.car_model
+  %br
+  %b Version:
+  = car.car_version
+  %br
+  %b Year:
+  = car.car_year
+  %br
+  %b City:
+  = car.car_city
+  %br
+  %b Mileage:
+  = car.car_mileage
+  %br
+  %b Price:
+  = car.car_price
+  %br
+  %b Tansmission:
+  = car.car_trans
+  %br
+  %b Description:
+  = car.car_desc
+  %br
+  %b Type:
+  = car.car_type
+  <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 
 = link_to 'Back', cars_all_path, :class=> "btn btn-primary"

@@ -3,7 +3,8 @@ class Car < ActiveRecord::Base
 	has_many :photos
 	validates :car_make,:car_model,:car_version,:car_year,:car_city,:car_mileage,:car_price,:car_trans,:car_desc,:car_type, presence: true
 
-  # scope :used, -> { where(:car_type => "Used") }
+  scope :used, -> { where(:car_type => "Used") }
+  scope :neww, -> { where(:car_type => "New") }
   mount_uploader :image, ImageUploader
 
 
