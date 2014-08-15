@@ -1,15 +1,15 @@
 class CarsController < ApplicationController
-  
+  before_filter :authenticate_user!, except: [:all, :used_cars, :new_cars, :index]
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
 	# GET /cars
   # GET /cars.json
   def index
-    @cars = Car.search(params[:search])
+    @cars = Car.all
   end
 
   def all
-    @cars = Car.order("created_at DESC").page(params[:page]).per(3)
+    @cars = Car.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
   end
 
   def used_cars
