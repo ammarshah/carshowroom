@@ -13,11 +13,11 @@ class CarsController < ApplicationController
   end
 
   def used_cars
-    @cars = Car.used
+    @cars = Car.used_cars
   end
 
   def new_cars
-    @cars = Car.neww
+    @cars = Car.new_cars
   end
 
   # GET /cars/1
