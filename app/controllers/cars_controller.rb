@@ -9,11 +9,11 @@ class CarsController < ApplicationController
   end
 
   def all
-    @cars = Car.all
+    @cars = Car.order("created_at DESC")
   end
 
   def used_cars
-    
+    # @cars = Car.used
   end
 
   def new_cars
