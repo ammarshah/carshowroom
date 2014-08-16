@@ -5,9 +5,8 @@
 %br
 
 %h1 Used Cars
-
+<hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 - @cars.each do |car|
-  <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
   %p
   = image_tag car.image_url(:thumb) if car.image?
   
