@@ -7,11 +7,15 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
-    %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
-    %footer
-      = render 'layouts/footer'
+  .container
+    - if current_user
+      %h5{:style=>'text-align:right'} Hello, #{current_user.name}
+  %header
+    = render 'layouts/navigation'
+  %main{:role => "main"}
+    = render 'layouts/messages'
+    = yield
+  %footer
+    = render 'layouts/footer'
