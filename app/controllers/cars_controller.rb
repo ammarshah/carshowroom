@@ -9,11 +9,15 @@ class CarsController < ApplicationController
   end
 
   def all
-    @cars = Car.search(params[:search]).order("created_at DESC").page(params[:page]).per(3)
+    if params[:q].present?
+      @cars = Car.search(params[:q]).page(params[:page]).per(3).records      
+    else
+      @cars = Car.all.order("created_at DESC").page(params[:page]).per(3)
+    end
   end
 
   def used_cars
-    @cars = Car.used_cars.order("created_at DESC").page(params[:page]).per(3)
+      @cars = Car.used_cars.order("created_at DESC").page(params[:page]).per(3)
   end
 
   def new_cars

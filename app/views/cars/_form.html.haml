@@ -2,18 +2,51 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :car_make
-    = f.input :car_model
-    = f.input :car_version
-    = f.input :car_year
-    = f.input :car_city
-    = f.input :car_mileage
-    = f.input :car_price
-    = f.input :car_trans
-    = f.input :car_desc
-    = f.input :car_type
+    
+    = f.label 'Make'
+    %p
+    = f.text_field :car_make
+    %p
+    = f.label 'Model'
+    %p
+    = f.text_field :car_model
+    %p
+    = f.label 'Version'
+    %p
+    = f.text_field :car_version
+    %p
+    = f.label 'Year'
+    %p
+    = f.text_field :car_year
+    %p
+    = f.label 'City'
+    %p
+    = f.text_field :car_city
+    %p
+    = f.label 'Mileage'
+    %p
+    = f.text_field :car_mileage
+    %p
+    = f.label 'Price'
+    %p
+    = f.text_field :car_price
+    %p
+    = f.label 'Transmission'
+    %p
+    = f.text_field :car_trans
+    %p
+    = f.label 'Type'
+    %p
+    = f.text_field :car_type
+    %p
+    = f.label 'Description'
+    %p
+    = f.text_area :car_desc
+    %p
+    = f.label 'Add Photo'
+    %p
     = f.file_field :image
     %br
     
   .form-actions
-    = f.button :submit
+    = f.submit 'Save', :class => "btn btn-primary"

@@ -6,10 +6,9 @@
 <div class="container">
 <%= form_tag cars_all_path, :method => 'get' do %>  
   <p>  
-    
-    <%= text_field_tag :search, params[:search], :placeholder => "Make, Model or Version...", :class => 'text_field' %>
-    <%= submit_tag "Find a Car", :name => nil, :class => 'submit' %>  
-  </p>  
+    <%= text_field_tag :q, params[:q], :placeholder => "Make, Model or Version...", :class => 'text_field' %>
+    <%= submit_tag "Find a Car", :name => nil, :class => 'submit' %>
+  </p>
 <% end %></div>
 </div>
 

@@ -1,44 +1,50 @@
-%br
-= link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
-= link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
-%br
-%br
+.container
+  %br
+  = link_to 'Used Cars', used_cars_path, :class => "btn btn-primary"
+  = link_to 'New Cars', new_cars_path, :class => "btn btn-primary"
+  %br
+  %br
 
-%h1 Used Cars
-<hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
-- @cars.each do |car|
-  %p
-  = image_tag car.image_url(:thumb) if car.image?
-  
-  %b Make:
-  = car.car_make
-  %br
-  %b Model:
-  = car.car_model
-  %br
-  %b Version:
-  = car.car_version
-  %br
-  %b Year:
-  = car.car_year
-  %br
-  %b City:
-  = car.car_city
-  %br
-  %b Mileage:
-  = car.car_mileage
-  %br
-  %b Price:
-  = car.car_price
-  %br
-  %b Tansmission:
-  = car.car_trans
-  %br
-  %b Description:
-  = car.car_desc
-  %br
-  %b Type:
-  = car.car_type
+  %h1 Used Cars
   <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
+  
+  - if @cars.any?
+    - @cars.each do |car|
+      %p
+      = image_tag car.image_url(:thumb) if car.image?
+      
+      %b Make:
+      = link_to car.car_make, controller: "cars", action: "show", id: car.id
+      %br
+      %b Model:
+      = car.car_model
+      %br
+      %b Version:
+      = car.car_version
+      %br
+      %b Year:
+      = car.car_year
+      %br
+      %b City:
+      = car.car_city
+      %br
+      %b Mileage:
+      = car.car_mileage
+      %br
+      %b Price:
+      = car.car_price
+      %br
+      %b Tansmission:
+      = car.car_trans
+      %br
+      %b Description:
+      = car.car_desc
+      %br
+      %b Type:
+      = car.car_type
+      <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 
-= paginate @cars
+    = paginate @cars
+    
+  - else
+    %h4 Oops! Nothing found

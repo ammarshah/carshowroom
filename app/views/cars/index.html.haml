@@ -1,41 +1,42 @@
-%h1 Listing cars
+.container
+  %h1 Listing cars
 
-%table
-  %tr
-    %th Car make
-    %th Car model
-    %th Car version
-    %th Car year
-    %th Car city
-    %th Car mileage
-    %th Car price
-    %th Car trans
-    %th Car desc
-    %th Car type
-    %th Car approval
-    %th User
-    %th
-    %th
-    %th
-
-  - @cars.each do |car|
+  %table
     %tr
-      %td= car.car_make
-      %td= car.car_model
-      %td= car.car_version
-      %td= car.car_year
-      %td= car.car_city
-      %td= car.car_mileage
-      %td= car.car_price
-      %td= car.car_trans
-      %td= car.car_desc
-      %td= car.car_type
-      %td= car.car_approval
-      %td= car.user_id
-      %td= link_to 'Show', car
-      %td= link_to 'Edit', edit_car_path(car)
-      %td= link_to 'Destroy', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Car make
+      %th Car model
+      %th Car version
+      %th Car year
+      %th Car city
+      %th Car mileage
+      %th Car price
+      %th Car trans
+      %th Car desc
+      %th Car type
+      %th Car approval
+      %th User
+      %th
+      %th
+      %th
 
-%br
+    - @cars.each do |car|
+      %tr
+        %td= car.car_make
+        %td= car.car_model
+        %td= car.car_version
+        %td= car.car_year
+        %td= car.car_city
+        %td= car.car_mileage
+        %td= car.car_price
+        %td= car.car_trans
+        %td= car.car_desc
+        %td= car.car_type
+        %td= car.car_approval
+        %td= car.user_id
+        %td= link_to 'Show', car
+        %td= link_to 'Edit', edit_car_path(car)
+        %td= link_to 'Destroy', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Car', new_car_path
+  %br
+
+  = link_to 'New Car', new_car_path
