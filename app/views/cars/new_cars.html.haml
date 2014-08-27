@@ -11,7 +11,8 @@
   - if @cars.any?
     - @cars.each do |car|
       %p
-      = image_tag car.image_url(:thumb) if car.image?
+      - car.photos.each do |p|
+        = image_tag p.image_url(:thumb)
       
       %b Make:
       = link_to car.car_make, controller: "cars", action: "show", id: car.id

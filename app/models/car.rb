@@ -6,12 +6,12 @@ class Car < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
 
   belongs_to :user
-	has_many :photos, :dependent => :delete_all
+	has_many :photos, :dependent => :destroy
+  accepts_nested_attributes_for :photos
 	validates :car_make,:car_model,:car_version,:car_year,:car_city,:car_mileage,:car_price,:car_trans,:car_desc,:car_type, presence: true
 
   scope :used_cars, -> { where(:car_type => "Used") }
   scope :new_cars, -> { where(:car_type => "New") }
-  mount_uploader :image, ImageUploader
 
   def self.search(query)
   __elasticsearch__.search(

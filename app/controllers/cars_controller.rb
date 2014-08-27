@@ -13,25 +13,30 @@ class CarsController < ApplicationController
       @cars = Car.search(params[:q]).page(params[:page]).per(3).records      
     else
       @cars = Car.all.order("created_at DESC").page(params[:page]).per(3)
+      @photos = Photo.all
     end
   end
 
   def used_cars
       @cars = Car.used_cars.order("created_at DESC").page(params[:page]).per(3)
+      @photos = Photo.all
   end
 
   def new_cars
     @cars = Car.new_cars.order("created_at DESC").page(params[:page]).per(3)
+    @photos = Photo.all
   end
 
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @photos = @car.photos.all
   end
 
   # GET /cars/new
   def new
     @car = Car.new
+    @photo = @car.photos.build
   end
 
   # GET /cars/1/edit
@@ -45,7 +50,9 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.save
-        Photo.create(:name => @car.image.filename, :car_id => @car.id)
+        params[:photos]['image'].each do |p|
+          @photo = @car.photos.create!(:image => p, :car_id => @car.id)
+        end
         format.html { redirect_to @car, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
@@ -60,6 +67,9 @@ class CarsController < ApplicationController
   def update
     respond_to do |format|
       if @car.update(car_params)
+        params[:photos]['image'].each do |p|
+          @photo = @car.photos.create!(:image => p, :car_id => @car.id)
+        end
         format.html { redirect_to @car, notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
       else
@@ -87,6 +97,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:car_make, :car_model, :car_version, :car_year, :car_city, :car_mileage, :car_price, :car_trans, :car_desc, :car_type, :car_approval, :user_id, :car_id, :name, :image, :remote_image_url)
+      params.require(:car).permit(:car_make, :car_model, :car_version, :car_year, :car_city, :car_mileage, :car_price, :car_trans, :car_desc, :car_type, :car_approval, :user_id, photos_attributes: [:id, :image, :car_id])
     end
 end

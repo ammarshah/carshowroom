@@ -2,7 +2,8 @@
   
   %br
   %p
-    = image_tag @car.image_url(:thumb) if @car.image?
+  - @photos.each do |p|
+    = image_tag p.image_url(:thumb)
   %p
     %b Car make:
     = @car.car_make
