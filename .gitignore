@@ -46,7 +46,7 @@ db/*.sqlite3
 /capybara-*.html
 /gems
 /specifications
-/public/uploads/car/image/*
+/public/uploads/photo/image/*
 rerun.txt
 pickle-email-*.html
 .zeus.sock

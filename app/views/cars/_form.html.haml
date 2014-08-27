@@ -1,4 +1,4 @@
-= simple_form_for(@car) do |f|
+= simple_form_for(@car, :html => { :multipart => true}) do |f|
   = f.error_notification
 
   .form-inputs
@@ -43,10 +43,11 @@
     %p
     = f.text_area :car_desc
     %p
-    = f.label 'Add Photo'
+  = f.fields_for :photos do |p|
+    = p.label 'Add Photos'
     %p
-    = f.file_field :image
-    %br
+    = p.file_field :image, :multiple => true, name: "photos[image][]"
+    %p
     
   .form-actions
     = f.submit 'Save', :class => "btn btn-primary"
