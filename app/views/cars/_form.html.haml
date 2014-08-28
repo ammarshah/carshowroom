@@ -2,18 +2,18 @@
   = f.error_notification
 
   .form-inputs
-    
+     
     = f.label 'Make'
     %p
-    = f.text_field :car_make
+    = f.text_field :car_make, :placeholder => "Honda, Toyota etc..."
     %p
     = f.label 'Model'
     %p
-    = f.text_field :car_model
+    = f.text_field :car_model, :placeholder => "Civic, Corolla etc..."
     %p
     = f.label 'Version'
     %p
-    = f.text_field :car_version
+    = f.text_field :car_version, :placeholder => "VTi, GLi etc..."
     %p
     = f.label 'Year'
     %p
@@ -33,15 +33,15 @@
     %p
     = f.label 'Transmission'
     %p
-    = f.text_field :car_trans
+    = f.text_field :car_trans, :placeholder => "Manual or Auto"
     %p
     = f.label 'Type'
     %p
-    = f.text_field :car_type
+    = f.text_field :car_type, :placeholder => "Used or New"
     %p
     = f.label 'Description'
     %p
-    = f.text_area :car_desc
+    = f.text_area :car_desc, :rows=>6, :placeholder => "Write any feature or info you wants to add..."
     %p
   = f.fields_for :photos do |p|
     = p.label 'Add Photos'

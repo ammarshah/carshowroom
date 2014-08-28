@@ -10,38 +10,37 @@
   
   - if @cars.any?
     - @cars.each do |car|
-      %p
-      - car.photos.each do |p|
-        = image_tag p.image_url(:thumb)
-      
-      %b Make:
+      %div.car-image
+        - car.photos.each do |p|
+          = image_tag p.image_url(:thumb)
+      .label.label-primary Make
       = link_to car.car_make, controller: "cars", action: "show", id: car.id
-      %br
-      %b Model:
+      %p
+      .label.label-primary Model
       = car.car_model
-      %br
-      %b Version:
+      %p
+      .label.label-primary Version
       = car.car_version
-      %br
-      %b Year:
+      %p
+      .label.label-primary Year
       = car.car_year
-      %br
-      %b City:
+      %p
+      .label.label-primary City
       = car.car_city
-      %br
-      %b Mileage:
+      %p
+      .label.label-primary Mileage
       = car.car_mileage
-      %br
-      %b Price:
+      %p
+      .label.label-primary Price
       = car.car_price
-      %br
-      %b Tansmission:
+      %p
+      .label.label-primary Tansmission
       = car.car_trans
-      %br
-      %b Description:
+      %p
+      .label.label-primary Description
       = car.car_desc
-      %br
-      %b Type:
+      %p
+      .label.label-primary Type
       = car.car_type
       <hr style="color:#c00;background-color:#A0A0A0;height:1px;border:none;" />
 
