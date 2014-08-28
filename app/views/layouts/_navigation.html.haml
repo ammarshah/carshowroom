@@ -11,19 +11,30 @@
         %span.icon-bar
      
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        = render 'layouts/navigation_links'
-      %ul
+      %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to 'Home', root_path, class: 'navbar-brand'
+          = link_to 'Home', root_path, class: ''
         %li
-          = link_to 'About', page_path('about'), class: 'navbar-brand'
+          = link_to 'About', page_path('about'), class: ''
         %li
-          = link_to 'Contact', new_contact_path, class: 'navbar-brand'
+          = link_to 'Contact', new_contact_path, class: ''
         %li
-
-          = link_to 'Cars', cars_all_path, class: 'navbar-brand'
+          = link_to 'Cars', cars_all_path, class: ''
         %li
-
-          = link_to "Add Cars", new_car_path, class: 'navbar-brand'
-     
+          = link_to "Add Cars", new_car_path, class: ''
+        - if user_signed_in?
+          - if current_user.has_role? :admin
+            %li
+              = link_to 'Users', users_path
+            %li
+              = link_to 'Edit account', edit_user_registration_path
+            %li
+              = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+          - else
+            %li
+              = link_to 'Edit account', edit_user_registration_path
+            %li
+              = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+        - else
+          %li
+            = link_to 'Sign in', new_user_session_path

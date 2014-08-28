@@ -1,42 +1,40 @@
 .container
   
   %br
+  %div.car-image
+    - @photos.each do |p|
+      = image_tag p.image_url(:thumb)
   %p
-  - @photos.each do |p|
-    = image_tag p.image_url(:thumb)
-  %p
-    %b Car make:
+    .label.label-primary Make
     = @car.car_make
   %p
-    %b Car model:
+    .label.label-primary Model
     = @car.car_model
   %p
-    %b Car version:
+    .label.label-primary Version
     = @car.car_version
   %p
-    %b Car year:
+    .label.label-primary Year
     = @car.car_year
   %p
-    %b Car city:
+    .label.label-primary City
     = @car.car_city
   %p
-    %b Car mileage:
+    .label.label-primary Mileage
     = @car.car_mileage
   %p
-    %b Car price:
+    .label.label-primary Price
     = @car.car_price
   %p
-    %b Car trans:
+    .label.label-primary Transmission
     = @car.car_trans
   %p
-    %b Car desc:
+    .label.label-primary Description
     = @car.car_desc
   %p
-    %b Car type:
+    .label.label-primary Type
     = @car.car_type
   %p
-    %b Car approval:
-    = @car.car_approval
 
   = link_to 'Edit', edit_car_path(@car)
   \|

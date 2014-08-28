@@ -19,58 +19,39 @@
 	background:url(headerbg.png) repeat !important ;
 }
 
-.navbar-default  ul {	
-	line-height:18px;
-	z-index:1300;
-	margin:0;
-	padding:0;
- 
-	text-transform:uppercase;
-	font-size:12px;
-	font-weight:500;
-	 float:right;
-	 margin-top:25px;
-	 }
-
-.navbar-default  ul li {
-	display:block;
-	float:left;
-	position:relative;
-	list-style:none;
-	margin:0 22px;
-	padding:0 0 20px 0;}
-
-.navbar-default  ul.navbar-default  uli.first,
-.navbar-default  ul li:first-child {
-	margin-left:0}
-
+.navbar-nav{
+	margin-top:15px;
+}
+.navbar-toggle {
+ 	margin-top: 33px !important;
+}
 .navbar-default  ul li a {
 	display:block;
 	color:#fff !important;
 	height:20px;
 	text-decoration:none}
 
-	.navbar-default .navbar-nav > li > a{
+.navbar-default .navbar-nav > li > a{
 	color:#fff;
+}
 
-	}
-
-	.navbar-default  ul li a:hover{
+.navbar-default  ul li a:hover{
 	color:#9e7706 !important;
-	}
+}
 
-	.navbar-default  ul li.users_things a{
+.navbar-default  ul li.users_things a{
 	color:#9e7706 !important;
 	font-weight:bold;
 
-	}
-	.navbar {
-position: relative;
-min-height: 100px;
+}
+.navbar {
+	position: relative;
+	min-height: 100px;
 }
 
 .brand{
 	margin-top:15px;
+	float: left;
 }
 main{
 	margin-top:0px !important;
@@ -80,8 +61,13 @@ main{
 .navbar{
 	margin-bottom:0px !important;
 }
-.slider{
+/*.slider{
 	margin-top:-100px;
+}*/
+header{
+	/*position: absolute;
+	z-index: 9999999;
+	width: 100%;*/
 }
 
 .navbar-default{
@@ -89,39 +75,60 @@ main{
 
 }
 .main-search{
-background:#ffbf00;
- 
-padding:30px 0px ;
+	background:#ffbf00;
+	padding:30px 0px ;
+	margin-top: -4px;
 }
 .main-search input.text_field{
-padding: 30px 25px;
-width: 70%;
-height: 40px;
-border:0px;
-margin-left:15px;}
+	padding: 30px 25px;
+	width: 70%;
+	height: 40px;
+	border:0px;
+	margin-left:15px;}
 
 .search-label{
-color:#fff;
-font-size:24px;
-padding:30px  25px;
-margin:0 25px;
+	color:#fff;
+	font-size:24px;
+	padding:30px  25px;
+	margin:0 25px;
 
 border-right: #fff solid 3px;
 font-weight:normal;
 	
 }
 .main-search .submit{
-background:#9e7706;
-padding: 19px 35px;
-color: #fff;
-border: 0px;
-border-radius: 0px !important;
-margin-top: -4px;
-margin-left: 10px;
+	background:#9e7706;
+	padding: 19px 35px;
+	color: #fff;
+	border: 0px;
+	border-radius: 0px !important;
+	margin-top: -4px;
+	margin-left: 10px;
 	
 }
+.car-image{
+	width:100%;
+	display:inline-block;
+}
+.car-image img{
+	
+	width: 32%;
+	float: left;
+	margin: 5px
+}
+.slider{	
+	margin-top: -100px;
+	z-index: 1;
+	display: inline-table;
+}
+.new-form{
+	margin: 0 auto;
+width: 310px;
+}
 
-
+.new-form input, .new-form textarea{
+ width:100%;
+ }
 /************************/
 
 
@@ -178,4 +185,14 @@ top:100px;
 left:35px;
 width:95%;
 padding:15px;
+}
+
+@media (min-width: 768px){
+ .container{
+   width: 920px !important;
+}
+.col-lg-3{
+	float:left;
+	margin-right:15px;
+}
 }

@@ -1,8 +1,10 @@
 .container
-	%h1 Editing car
+	.new-form
+		%h1 Editing car
 
-	= render 'form'
+		= render 'form'
+		%p
 
-	= link_to 'Show', @car
-	\|
-	= link_to 'Back', cars_all_path
+		= link_to 'Show', @car
+		\|
+		= link_to 'Back', cars_all_path
