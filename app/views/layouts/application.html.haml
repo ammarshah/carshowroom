@@ -10,8 +10,6 @@
 
   %body
   .container
-    - if current_user
-      %h5{:style=>'text-align:right'} Hello, #{current_user.name}
   %header
     = render 'layouts/navigation'
   %main{:role => "main"}

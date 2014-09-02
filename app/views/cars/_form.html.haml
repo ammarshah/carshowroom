@@ -35,19 +35,30 @@
     %p
     = f.text_field :car_trans, :placeholder => "Manual or Auto"
     %p
-    = f.label 'Type'
-    %p
-    = f.text_field :car_type, :placeholder => "Used or New"
+    - if current_user.has_role? :admin
+      = f.label 'Type'
+      %p
+      = f.text_field :car_type, :placeholder => "Used or New"
+    - else
+      = f.text_field :car_type, :value => "Used", :hidden => true
     %p
     = f.label 'Description'
     %p
-    = f.text_area :car_desc, :rows=>6, :placeholder => "Write any feature or info you wants to add..."
+    = f.text_area :car_desc, :rows=>6, :placeholder => "Write any feature or info you want to add..."
     %p
-  = f.fields_for :photos do |p|
-    = p.label 'Add Photos'
-    %p
-    = p.file_field :image, :multiple => true, name: "photos[image][]"
-    %p
+    - if params[:controller] == "cars" && params[:action] == "edit"
+      = f.label 'Photos'
     
+    - if params[:controller] == "cars" && params[:action] == "edit"
+      - @car.photos.each do |p|
+        %div.car-image
+          = image_tag p.image, :size => "100x100"
+          = link_to "Remove", p, method: :delete, :data => { :confirm => 'Are you sure?' }
+    %p
+    = f.label 'Add Photos'
+    %p
+    = f.file_field :image, :multiple => true, name: "photos[image][]"
+    
+    %br
   .form-actions
     = f.submit 'Save', :class => "btn btn-primary"

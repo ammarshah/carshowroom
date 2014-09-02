@@ -1,20 +1,18 @@
 .container
-  %h1 Listing cars
+  %h1 Listing Cars
 
   %table
     %tr
-      %th Car make
-      %th Car model
-      %th Car version
-      %th Car year
-      %th Car city
-      %th Car mileage
-      %th Car price
-      %th Car trans
-      %th Car desc
-      %th Car type
-      %th Car approval
-      %th User
+      %th Car Make
+      %th Car Model
+      %th Car Version
+      %th Car Year
+      %th Car City
+      %th Car Mileage
+      %th Car Price
+      %th Car Transmission
+      %th Car Description
+      %th Car Type
       %th
       %th
       %th
@@ -31,12 +29,10 @@
         %td= car.car_trans
         %td= car.car_desc
         %td= car.car_type
-        %td= car.car_approval
-        %td= car.user_id
         %td= link_to 'Show', car
-        %td= link_to 'Edit', edit_car_path(car)
-        %td= link_to 'Destroy', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '|Edit', edit_car_path(car)
+        %td= link_to '|Remove', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
 
-  = link_to 'New Car', new_car_path
+  = link_to 'Add New Car', new_car_path

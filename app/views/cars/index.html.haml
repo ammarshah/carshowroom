@@ -34,9 +34,9 @@
         %td= car.car_approval
         %td= car.user_id
         %td= link_to 'Show', car
-        %td= link_to 'Edit', edit_car_path(car)
-        %td= link_to 'Destroy', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '|Edit', edit_car_path(car)
+        %td= link_to '|Remove', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
 
-  = link_to 'New Car', new_car_path
+  = link_to 'Add New Car', new_car_path
