@@ -53,7 +53,7 @@ class CarsController < ApplicationController
         params[:photos]['image'].each do |p|
           @photo = @car.photos.create!(:image => p, :car_id => @car.id)
         end
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
+        format.html { redirect_to @car, notice: 'Car was successfully added.' }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new }
@@ -67,8 +67,10 @@ class CarsController < ApplicationController
   def update
     respond_to do |format|
       if @car.update(car_params)
-        params[:photos]['image'].each do |p|
-          @photo = @car.photos.create!(:image => p, :car_id => @car.id)
+        unless params[:photos].blank?
+          params[:photos]['image'].each do |p|
+            @photo = @car.photos.create!(:image => p, :car_id => @car.id)
+          end
         end
         format.html { redirect_to @car, notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
@@ -84,7 +86,7 @@ class CarsController < ApplicationController
   def destroy
     @car.destroy
     respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+      format.html { redirect_to cars_url, notice: 'Car was successfully removed.' }
       format.json { head :no_content }
     end
   end

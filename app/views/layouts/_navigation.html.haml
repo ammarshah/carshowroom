@@ -12,6 +12,8 @@
      
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %h5{:style=>'text-align:right', :class=>"text-primary"} Hello, #{current_user.name}
         %li
           = link_to 'Home', root_path, class: ''
         %li
